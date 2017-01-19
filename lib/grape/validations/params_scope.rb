@@ -235,6 +235,8 @@ module Grape
         values = options_key?(:values, :value, validations) ? validations[:values][:value] : validations[:values]
         doc_attrs[:values] = values if values
 
+        doc_attrs[:x] = validations[:x] if validations.key?(:x)
+
         coerce_type = guess_coerce_type(coerce_type, values)
 
         # default value should be present in values array, if both exist and are not procs
